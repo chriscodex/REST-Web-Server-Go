@@ -15,6 +15,7 @@ func NewServer(port string) *Server {
 }
 
 func (s *Server) Listen() error {
+	http.Handle("/", s.router)
 	err := http.ListenAndServe(s.port, nil)
 	if err != nil {
 		return err
