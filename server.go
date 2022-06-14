@@ -9,7 +9,8 @@ type Server struct {
 
 func NewServer(port string) *Server {
 	return &Server{
-		port: port,
+		port:   port,
+		router: NewRouter(),
 	}
 }
 
