@@ -17,6 +17,12 @@ func NewRouter() *Router {
 	}
 }
 
+// Function to map a handler with a path
+func (r *Router) FindHandler(path string) (http.HandlerFunc, bool) {
+	handler, exist := r.rules[path]
+	return handler, exist
+}
+
 // This function turns Router into a Handler(Interface)
 func (r *Router) ServeHTTP(w http.ResponseWriter, request *http.Request) {
 	fmt.Fprintf(w, "Server Working")
