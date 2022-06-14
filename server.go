@@ -3,7 +3,8 @@ package main
 import "net/http"
 
 type Server struct {
-	port string
+	port   string
+	router *Router
 }
 
 func NewServer(port string) *Server {
