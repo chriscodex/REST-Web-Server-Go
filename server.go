@@ -27,7 +27,7 @@ func (s *Server) Listen() error {
 	return nil
 }
 
-// Function to add a path to a handler
+// Function to add a path and a method to a handler, and create one if it doesn't exist
 func (s *Server) Handle(method string, path string, handler http.HandlerFunc) {
 	_, exist := s.router.rules[path]
 	if !exist {
