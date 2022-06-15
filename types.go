@@ -1,9 +1,16 @@
 package main
 
-import "net/http"
+import (
+	"encoding/json"
+	"net/http"
+)
 
 // Struct of middleware
 type Middleware func(http.HandlerFunc) http.HandlerFunc
+
+// Struct of Metadata
+type Metadata interface {
+}
 
 // Struct of User
 type User struct {
@@ -12,6 +19,7 @@ type User struct {
 	Phone string
 }
 
-// Struct of Metadata
-type Metadata interface {
+// Method to parse his properties in json
+func (u *User) ToJson() ([]byte, error) {
+	return json.Marshal(u)
 }

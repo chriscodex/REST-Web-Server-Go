@@ -28,14 +28,15 @@ func PostRequest(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Payload %v\n", metadata)
 }
 
-// Handler to manage the post request to user endpoint
+// Handler to manage the post request in user endpoint
 func UserPostRequest(w http.ResponseWriter, r *http.Request) {
 	decoder := json.NewDecoder(r.Body)
-	var user Metadata
+	var user User
 	err := decoder.Decode(&user)
 	if err != nil {
 		fmt.Fprintf(w, "error: %v", err)
 		return
 	}
+	fmt.Println(user.Name)
 	fmt.Fprintf(w, "Payload %v\n", user)
 }
