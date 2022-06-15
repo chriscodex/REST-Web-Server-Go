@@ -11,3 +11,7 @@ type User struct {
 	Email string
 	Phone string
 }
+
+// Struct of Metadata
+type Metadata interface {
+}
