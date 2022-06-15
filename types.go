@@ -14,9 +14,9 @@ type Metadata interface {
 
 // Struct of User
 type User struct {
-	Name  string
-	Email string
-	Phone string
+	Name  string `json:"name"`
+	Email string `json:"email"`
+	Phone string `json:"phone"`
 }
 
 // Method to parse his properties in json
