@@ -5,19 +5,19 @@ import (
 )
 
 type Router struct {
-	rules map[string]http.HandlerFunc
+	rules map[string]map[string]http.HandlerFunc
 }
 
 // Methods
 
 func NewRouter() *Router {
 	return &Router{
-		rules: make(map[string]http.HandlerFunc),
+		rules: make(map[string]map[string]http.HandlerFunc),
 	}
 }
 
 // Function to map a handler with a path
-func (r *Router) FindHandler(path string) (http.HandlerFunc, bool) {
+func (r *Router) FindHandler(path string, method string) (http.HandlerFunc, bool, bool) {
 	handler, exist := r.rules[path]
 	return handler, exist
 }
