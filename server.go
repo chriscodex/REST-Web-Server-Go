@@ -28,8 +28,8 @@ func (s *Server) Listen() error {
 }
 
 // Function to add a path to a handler
-func (s *Server) Handle(path string, handler http.HandlerFunc) {
-	s.router.rules[path] = handler
+func (s *Server) Handle(method string, path string, handler http.HandlerFunc) {
+	s.router.rules[path][method] = handler
 }
 
 // Function to add a middleware
