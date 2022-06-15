@@ -11,6 +11,6 @@ func HandlerRoot(w http.ResponseWriter, r *http.Request) {
 }
 
 // Handle to manage home
-func HandleHome(w http.ResponseWriter, r *http.Request) {
+func HandlerHome(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Home endpoint working")
 }
